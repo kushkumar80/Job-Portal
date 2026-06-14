@@ -1,6 +1,9 @@
 package com.nit.user.Controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,13 +37,21 @@ public class UserController {
 		public ResponseEntity<UserResponse> register(@Valid @RequestBody RegisterRequest request){
 			
 			UserResponse response=userService.register(request);
-			return  ResponseEntity.ok(response);
+			return  new  ResponseEntity <>(response, HttpStatus.CREATED);
 		}
-		@PostMapping("/Login")	
 		public ResponseEntity<UserResponse> login (@Valid @RequestBody LoginRequest request)
 		{
 			UserResponse response=userService.login(request);
+			return  new ResponseEntity<>(response,HttpStatus.ACCEPTED);
+		}
+		
+		@GetMapping("/{id}")
+		public ResponseEntity<UserResponse> findById(@PathVariable Long id ){
+			
+			UserResponse response =userService.findById(id);
+			
 			return ResponseEntity.ok(response);
+			
 		}
 			
 			

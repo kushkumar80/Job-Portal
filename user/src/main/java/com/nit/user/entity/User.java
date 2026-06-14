@@ -26,19 +26,19 @@ public class User {
 	private  String password;
 	 
 	@Enumerated(EnumType.STRING)
-	private Role roles;
+	private Role role;
 	
 	public User() {
 		
 	}
 
-	public User(Long id, String name, String email, String password, Role roles) {
+	public User(Long id, String name, String email, String password, Role role) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.password = password;
-		this.roles = roles;
+		this.role = role;
 	}
 
 
@@ -82,13 +82,13 @@ public class User {
 	}
 
 
-	public Role getRoles() {
-		return roles;
+	public Role getRole() {
+		return role;
 	}
 
 
-	public void setRoles(Role roles) {
-		this.roles = roles;
+	public void setRole(Role role) {
+		this.role = role;
 	}
 	
 	

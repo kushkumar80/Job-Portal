@@ -9,6 +9,9 @@ public interface UserService {
 	public UserResponse register (RegisterRequest  request) ;
 	
 	public UserResponse login (LoginRequest request);
+
+	public UserResponse findById(Long id);
+
 	 
 	
 	
